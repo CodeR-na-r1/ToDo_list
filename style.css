@@ -1,0 +1,158 @@
+html, body
+{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body
+{
+  background: #fff;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+label
+{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.todo-container
+{
+  width: 1140px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+}
+
+.todo-container__list
+{
+  background: #ffffff;
+  border: 1px solid #00000029;
+  border-radius: 15px;
+  user-select: none;
+}
+
+.todo-list__header
+{
+  display: block;
+  margin: 31px 0 20px 15px;
+  font-size: 1.7em;
+  color: #707070;
+}
+
+.todo-list__img__add
+{
+  display: inline-block;
+  font-size: .5em;
+}
+
+.todo-list__img__add > img
+{
+  margin-right: 12px;
+}
+
+.todo__list
+{
+
+}
+
+.todo-list__task__item
+{
+  list-style-type: none;
+  padding: 10px;
+}
+
+.img__button
+{
+  float: right;
+  margin-right: 15px;
+}
+
+.button
+{
+  border-radius: 32px;
+  padding: 8px 26px;
+}
+
+.todo-container__form
+{
+  background-color: #fff;
+  border: 1px solid gray;
+  width: 555px;
+  height: 212px;
+  margin-top: 71px;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 6px #00000029;
+  box-sizing: border-box;
+}
+
+.todo-form__header
+{
+  margin-bottom: 7px;
+  font-size: 1.285em;
+  color: #000000;
+}
+
+.todo-form__subheader
+{
+  margin-bottom: 9px;
+  font-size: 1em;
+  color: #707070;
+}
+
+.todo-form__input
+{
+  font-size: 1em;
+  color: #202020;
+  margin-bottom: 15px;
+  padding: 4px 0 3px 5px;
+  width: 510px;
+  border: 1px solid #AAAAAABF;
+  border-radius: 2px;
+}
+
+.todo-form__button
+{
+  margin-top: 13px;
+  width: 126px;
+}
+
+.todo-form__button__save
+{
+  margin-right: 20px;
+  background-color: #3F88E8;
+  border-color: #3F88E8;
+  color: #fff;
+}
+
+.todo-form__button__cancel
+{
+  background-color: #ffffff;
+  border-color: #707070;
+  color: #707070;
+}
+
+.hide
+{
+  display: none;
+  pointer-events: none;
+}
+
+.task_completed_span
+{
+  text-decoration: line-through;
+}
+
+.task_completed_img
+{
+  opacity: 0.6;
+  pointer-events: none;
+}
