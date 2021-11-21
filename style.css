@@ -69,6 +69,11 @@ label
   padding: 10px;
 }
 
+.todo-list__task__item__img
+{
+  margin: 0 15px;
+}
+
 .img__button
 {
   float: right;
