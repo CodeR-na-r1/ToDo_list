@@ -58,7 +58,7 @@ label
   margin-right: 12px;
 }
 
-.todo__list
+.todo-list
 {
 
 }
@@ -66,12 +66,20 @@ label
 .todo-list__task__item
 {
   list-style-type: none;
-  padding: 10px;
+  box-sizing: border-box;
+  padding: 10px 0;
+  height: 45px;
+}
+
+.todo-list__task__item > input
+{
+  width: 20px;
+  margin-right: 15px;
 }
 
 .todo-list__task__item__img
 {
-  margin: 0 15px;
+  margin: 0 15px 0 0;
 }
 
 .img__button
@@ -159,5 +167,11 @@ label
 .task_completed_img
 {
   opacity: 0.6;
+  pointer-events: none;
+}
+
+.empty
+{
+  display: none;
   pointer-events: none;
 }

@@ -3,27 +3,13 @@ var __NOW__TASK = null;
 function addTask()
 {
   let form = document.forms.todo__fill_form;  // Берем форму для заполнения задачи
-  __clear_form(form);
+  __clear_form(form); // чистим форму
   form.parentNode.classList.remove("hide"); // Делаем ее видимой и доступной
 }
 
 function removeTask(task)
 {
-  let ul = task.parentNode.parentNode
-
-  if (ul.childElementCount == 1)
-  {
-  /* Скрытие и инициализация оставшегося элемента */
-    ul.children[0].classList.add("empty");
-    let li = ul.children[0];
-    li.children[0].checked = false;
-    li.children[1].innerHTML = "";
-  }
-  else
-  {
-    task.parentNode.remove(); // Удаляем задачу из списка (для этого обращаемся к родительскому элементу li)
-  }
-
+  task.parentNode.remove(); // Удаляем задачу из списка (для этого обращаемся к родительскому элементу li)
 }
 
 function editTask(task)
@@ -38,31 +24,36 @@ function editTask(task)
   else
     form.elements[1].checked = false;
 
-  __NOW__TASK = li;
+  __NOW__TASK = li; // Почемаем в глобальной переменной, что  в форме редактируется существующая задача
 }
 
 function saveTask(task)
 {
-  let form = document.forms.todo__fill_form;
-  let img_hight_prio = document.getElementsByClassName('todo-list__task__item__img')[0];
+  let form = document.forms.todo__fill_form;  // Берем форму для схранения задачи
+  let img_hight_prio = document.getElementsByClassName('todo-list__task__item__img')[0].cloneNode(true);  // Копия картинки высокого приоритета
 
-  if (__NOW__TASK)
+  if (form.elements[0].value == "") {  __clear_form(form); return; }  // Если описание задачи отсутсвует, то выходим
+
+  if (__NOW__TASK)  // Если в форме сейчас находится редактируемая задача
   {
-    if (form.elements[1].checked) { __NOW__TASK.children[1].appendChild(img_hight_prio); }
-    __NOW__TASK.children[1].textContent =  form.elements[0].value;
+    __NOW__TASK.children[1].innerHTML = "";  // Чистим поле span
+    if (form.elements[1].checked) { __NOW__TASK.children[1].append(img_hight_prio); }  // Если выбран высокий приритет, добавляем картинку в span
+    __NOW__TASK.children[1].innerHTML += form.elements[0].value;  // после картинки добавляем описание задачи
   }
-  else
+  else  // Если сохраняем новую задачу, то
   {
-    let ul = document.getElementsByClassName('todo-list__tasks')[0];
-    let new_elem = ul.children[0].cloneNode(true);
-    if (form.elements[1].checked) { new_elem.children[1].appendChild(img_hight_prio); }
-    new_elem.children[1].textContent = form.elements[0].value;
-    ul.appendChild(new_elem);
+    let ul = document.getElementsByClassName('todo-list__tasks')[0];  // Находим элемент со всеми задачами
+    let new_elem = ul.children[0].cloneNode(true);  // Клонируем скрытый шаблон для новых задач
+    new_elem.classList.remove("empty");   // Делаем нескрытным
+    new_elem.children[1].innerHTML = "";  // Чистим поле span
+    if (form.elements[1].checked) { new_elem.children[1].append(img_hight_prio); }  // Если выбран высокий приритет, добавляем картинку в span
+    new_elem.children[1].innerHTML += form.elements[0].value;  // после картинки добавляем описание задачи
+    ul.appendChild(new_elem);  // Добавляем элемент в наш общий список задач
   }
 
-  __NOW__TASK = null;
+  __NOW__TASK = null;  // Перед закрытием формы сбрасываем переменную хранения редактируемой формы
 
-  __clear_form(form);
+  __clear_form(form);  // Чистка формы
 
 }
 

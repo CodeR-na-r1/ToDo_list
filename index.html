@@ -11,17 +11,11 @@
 
       <div class="todo-container__list">
         <div class="todo-list__header">Список задач <div class="img__button todo-list__img__add" onclick="addTask()"><img src="data_pictures/button_add.svg" alt="button_add"> Добавить</div> </div>
-        <div class="todo__list">
-          <ul>
-            <li class="todo-list__task__item">
+        <div class="todo-list">
+          <ul class="todo-list__tasks">
+            <li class="todo-list__task__item empty">
               <input type="checkbox" name="" value="" onclick="task_status(this)">
-              <span class="todo-list__task__name">Задача 1</span>
-              <img class="img__button" src="data_pictures/button_edit.svg" alt="button_edit" onclick="editTask(this)">
-              <img class="img__button" src="data_pictures/button_remove.svg" alt="button_remove" onclick="removeTask(this)">
-            </li>
-            <li class="todo-list__task__item">
-              <input type="checkbox" name="" value="" onclick="task_status(this)">
-              <span class="todo-list__task__name"><img class="todo-list__task__item__img" src="data_pictures/hight_priorety.svg" width="15px;" alt="hight_priorety">Задача 2</span>
+              <span class="todo-list__task__name"><img class="todo-list__task__item__img" src="data_pictures/hight_priorety.svg" alt="hight_priorety"></span>
               <img class="img__button" src="data_pictures/button_edit.svg" alt="button_edit" onclick="editTask(this)">
               <img class="img__button" src="data_pictures/button_remove.svg" alt="button_remove" onclick="removeTask(this)">
             </li>
@@ -29,12 +23,12 @@
         </div>
       </div>
 
-      <div class="todo-container__form">
+      <div class="todo-container__form hide">
         <div class="todo-form__header">Карточка задачи</div>
         <div class="todo-form__subheader">Задача</div>
         <form name="todo__fill_form">
           <input class="todo-form__input" type="text" name="" value="" placeholder="Описание задачи">
-          <label> <input type="checkbox" name="" value=""> Высокий приоритет <img src="data_pictures/hight_priorety.svg" width="15px;" alt="hight_priorety"> </label>
+          <label> <input type="checkbox" name="" value=""> Высокий приоритет <img src="data_pictures/hight_priorety.svg" alt="hight_priorety"> </label>
           <br>
           <button type="button" class="button todo-form__button todo-form__button__save" onclick="saveTask(this)"> Сохранить </button>
           <button type="button" class="button todo-form__button todo-form__button__cancel" onclick="cancelTask(this)"> Отмена </button>
